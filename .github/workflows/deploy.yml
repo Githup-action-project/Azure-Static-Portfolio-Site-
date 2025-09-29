@@ -1,7 +1,4 @@
-from pathlib import Path
-
-# Define the GitHub Actions workflow content
-workflow_content = """name: Deploy Azure Static Web App
+name: Deploy Azure Static Web App
 
 on:
   push:
@@ -24,12 +21,3 @@ jobs:
           action: "upload"
           app_location: "webapp"
           output_location: ""
-"""
-
-# Save the workflow file to .github/workflows/deploy.yml
-workflow_path = Path(".github/workflows/deploy.yml")
-workflow_path.parent.mkdir(parents=True, exist_ok=True)
-workflow_path.write_text(workflow_content)
-
-# Confirm the file creation
-print(f"GitHub Actions workflow file created at: {workflow_path}")
