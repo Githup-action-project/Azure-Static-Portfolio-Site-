@@ -1,56 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Mohammed Ibrahim - Portfolio</title>
-    styles.css
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohammed Ibrahim - Portfolio</title>
+  https://cdn.tailwindcss.com</script>
+  https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
 </head>
-<body>
-    <header>
-        <h1>Mohammed Ibrahim</h1>
-        <p>Cloud & DevOps Enthusiast</p>
-        <nav>
-            index.htmlHome</a>
-            about.htmlAbout</a>
-            #skillsSkills</a>
-            #projectsProjects</a>
-            #contactContact</a>
-        </nav>
-    </header>
+<body class="bg-gray-50 text-gray-800">
 
-    <section id="bio">
-        <h2>Welcome</h2>
-        <p>Welcome to my portfolio-site. I'm passionate about cloud technologies, DevOps, and automation using Terraform, Azure DevOps, and GitHub.</p>
-    </section>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-20 px-6 text-center">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">Mohammed Ibrahim</h1>
+    <p class="text-xl md:text-2xl">Cloud & DevOps Engineer</p>
+    <p class="mt-4 text-lg">Specializing in Terraform, Azure DevOps, and GitHub automation</p>
+  </section>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Terraform</li>
-            <li>Azure DevOps</li>
-            <li>GitHub Actions</li>
-            <li>CI/CD Pipelines</li>
-            <li>Infrastructure as Code</li>
-        </ul>
-    </section>
+  <!-- Skills Section -->
+  <section class="py-12 px-6 max-w-4xl mx-auto">
+    <h2 class="text-3xl font-semibold mb-6 text-center">Skills</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
+      <div class="bg-white shadow rounded p-4">Terraform</div>
+      <div class="bg-white shadow rounded p-4">Azure DevOps</div>
+      <div class="bg-white shadow rounded p-4">GitHub Actions</div>
+      <div class="bg-white shadow rounded p-4">CI/CD Pipelines</div>
+      <div class="bg-white shadow rounded p-4">Infrastructure as Code</div>
+      <div class="bg-white shadow rounded p-4">Linux & Shell Scripting</div>
+    </div>
+  </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li>Somali Proverbs & Wisdom Web App</li>
-            <li>Azure Static Portfolio Site</li>
-            <li>DevOps Automation with GitHub Actions</li>
-        </ul>
-    </section>
+  <!-- Projects Section -->
+  <section class="py-12 px-6 max-w-4xl mx-auto">
+    <h2 class="text-3xl font-semibold mb-6 text-center">Projects</h2>
+    <div class="space-y-6">
+      <div class="bg-white shadow rounded p-6">
+        <h3 class="text-xl font-bold mb-2">Somali Proverbs & Wisdom Web App</h3>
+        <p>A static site showcasing Somali cultural proverbs, deployed using Terraform and Azure DevOps.</p>
+      </div>
+      <div class="bg-white shadow rounded p-6">
+        <h3 class="text-xl font-bold mb-2">Azure Static Portfolio Site</h3>
+        <p>Personal portfolio hosted on Azure Static Web Apps with GitHub Actions CI/CD pipeline.</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: mohammed.ibrahim@example.com</p>
-        <p>GitHub: https://github.com/ibrahimm12ibrahimm12</a></p>
-    </section>
+  <!-- Contact Section -->
+  <section class="py-12 px-6 max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl font-semibold mb-6">Contact</h2>
+    <p class="mb-2">📧 Email: mohammed.ibrahim@example.com</p>
+    <p>🌐 GitHub: https://github.com/ibrahimm12ibrahimm12</a></p>
+  </section>
 
-    <footer>
-        <p>&copy; 2024 Mohammed Ibrahim</p>
-    </footer>
+  <!-- Footer -->
+  <footer class="bg-gray-100 text-center py-6 mt-12 text-sm text-gray-500">
+    &copy; 2024 Mohammed Ibrahim. All rights reserved.
+  </footer>
+
 </body>
 </html>

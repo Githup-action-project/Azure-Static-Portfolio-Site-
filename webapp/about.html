@@ -1,31 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>About - Mohammed Ibrahim</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - Mohammed Ibrahim</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
 </head>
-<body>
-    <header>
-        <h1>About Me</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-        </nav>
-    </header>
+<body class="bg-gray-50 text-gray-800">
 
-    <section>
-        <h2>Background</h2>
-        <p>I am a technology enthusiast with a strong interest in cloud computing and DevOps practices. I enjoy building automated solutions using Terraform and deploying applications using CI/CD pipelines.</p>
-    </section>
+  <!-- Navigation -->
+  <nav class="bg-white shadow px-6 py-4 flex justify-between items-center">
+    <div class="text-xl font-bold text-blue-600">Mohammed Ibrahim</div>
+    <div class="space-x-4">
+      <a href="index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+      <a href="about.html" class="text-blue-600 font-semibold">About</a>
+      <a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
+    </div>
+  </nav>
 
-    <section>
-        <h2>Goals</h2>
-        <p>My goal is to contribute to impactful projects that leverage cloud infrastructure and automation to deliver scalable and reliable solutions.</p>
-    </section>
+  <!-- About Section -->
+  <section class="py-12 px-6 max-w-4xl mx-auto">
+    <h1 class="text-4xl font-bold mb-6 text-center text-indigo-600">About Me</h1>
 
-    <footer>
-        <p>&copy; 2024 Mohammed Ibrahim</p>
-    </footer>
+    <div class="bg-white shadow rounded p-6 mb-8">
+      <h2 class="text-2xl font-semibold mb-2">Background</h2>
+      <p>I am a passionate Cloud & DevOps Engineer with a strong interest in automation, infrastructure as code, and continuous delivery. My journey began with scripting and evolved into mastering tools like Terraform, Azure DevOps, and GitHub Actions.</p>
+    </div>
+
+    <div class="bg-white shadow rounded p-6">
+      <h2 class="text-2xl font-semibold mb-2">Goals</h2>
+      <p>My goal is to build scalable, secure, and automated cloud solutions that empower teams to deliver faster and more reliably. I enjoy sharing knowledge and contributing to open-source projects that promote DevOps best practices.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-12 px-6 max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl font-semibold mb-6">Contact</h2>
+    <p class="mb-2">📧 Email: mohammed.ibrahim@example.com</p>
+    <p>🌐 GitHub: <a href="https://github.com/ibrahimm12" class="text-blue-600 hover:underline" target="_blank">ibrahimm12</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 text-center py-6 mt-12 text-sm text-gray-500">
+    &copy; 2024 Mohammed Ibrahim. All rights reserved.
+  </footer>
+
 </body>
 </html>
