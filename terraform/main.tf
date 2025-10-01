@@ -18,10 +18,9 @@ resource "azurerm_resource_group" "portfolio_rg" {
 
 resource "azurerm_static_web_app" "portfolio_site" {
   name                = "portfolio-static-site"
-  resource_group_name = azurerm_resource_group.portfolio_rg.name
-  location            = azurerm_resource_group.portfolio_rg.location
-  sku_tier            = "Free"
-  sku_size            = "Standard"
+  resource_group_name = "abdirahman.ibrahim_capgemini.com"
+  location            = "West Europe"
+  sku                 = "Free"
 
   identity {
     type = "SystemAssigned"
