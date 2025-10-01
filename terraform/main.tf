@@ -20,7 +20,7 @@ resource "azurerm_static_web_app" "portfolio_site" {
   name                = "portfolio-static-site"
   resource_group_name = "abdirahman.ibrahim_capgemini.com"
   location            = "West Europe"
-  sku                 = "Free"
+
 
   identity {
     type = "SystemAssigned"
@@ -31,8 +31,13 @@ resource "azurerm_static_web_app" "portfolio_site" {
   }
 }
 
+
+
 resource "azurerm_storage_table" "visitor_stats" {
   name                 = "VisitorStats"
-  storage_account_name = azurerm_storage_account.existing.name
-  resource_group_name = "abdirahman.ibrahim_capgemini.com"
+  
+ storage_account_name = azurerm_storage_account.portfolio_storage.name
+resource_group_name  = var.resource_group_name
+
 }
+
