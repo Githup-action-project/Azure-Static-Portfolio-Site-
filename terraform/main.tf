@@ -27,6 +27,13 @@ resource "azurerm_static_web_app" "portfolio_site" {
     type = "SystemAssigned"
   }
 
+build_properties {
+  api_location = "azure-functions"
+  app_location = "."
+  output_location = "dist"
+  app_build_command = "npm run build"
+}
+
   tags = {
     environment = "portfolio"
   }
