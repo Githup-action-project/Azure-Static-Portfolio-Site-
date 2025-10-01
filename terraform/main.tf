@@ -30,3 +30,9 @@ resource "azurerm_static_web_app" "portfolio_site" {
     environment = "portfolio"
   }
 }
+
+resource "azurerm_storage_table" "visitor_stats" {
+  name                 = "VisitorStats"
+  storage_account_name = azurerm_storage_account.existing.name
+  resource_group_name = "abdirahman.ibrahim_capgemini.com"
+}
