@@ -1,0 +1,9 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "STORAGE_ACCOUNT_NAME": "visitorstorageacct",
+    "STORAGE_ACCOUNT_KEY": "2e/+WDbnjDeTaSTnsf6ISoIwGBVr1HSRqw/TvwyzqfKjUBwRQYoXQ4gQvniNWR8sIOsFs62cvU1Z+AStEFbwTQ=="
+  }
+}
