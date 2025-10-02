@@ -22,10 +22,7 @@ resource "azurerm_static_web_app" "portfolio_site" {
   location            = "West Europe"
 
 
-  identity {
-    type = "SystemAssigned"
-  }
-
+ 
   tags = {
     environment = "portfolio"
   }
