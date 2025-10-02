@@ -28,6 +28,19 @@ resource "azurerm_static_web_app" "portfolio_site" {
   }
 }
 
+resource "azurerm_app_service_plan" "function_plan" {
+  name                = "visitorcounter-plan"
+  location            = "West Europe"
+  resource_group_name = "abdirahman.ibrahim_capgemini.com"
+  kind                = "FunctionApp"
+  reserved            = true
+
+  sku {
+    tier = "Dynamic"
+    size = "Y1"
+  }
+}
+
 resource "azurerm_function_app" "visitorcounter_func" {
   name                       = "visitorcounter-func"
   location                   = "West Europe"
