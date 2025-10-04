@@ -55,3 +55,15 @@ module.exports = async function (context, req) {
     body: "Visitor recorded!"
   };
 };
+
+fetch("https://visitorcounter-func.azurewebsites.net/api/VisitorCounter")
+  .then(res => res.text())
+  .then(data => {
+    console.log("Response from Function:", data);
+    // Optionally update the UI
+    document.getElementById("visitor-count").textContent = data;
+  })
+  .catch(err => {
+    console.error("Error calling Function App:", err);
+  });
+
