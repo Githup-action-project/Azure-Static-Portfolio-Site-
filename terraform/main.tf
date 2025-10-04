@@ -22,7 +22,7 @@ resource "azurerm_static_web_app" "portfolio_site" {
   location            = "West Europe"
 
 
- 
+
   tags = {
     environment = "portfolio"
   }
@@ -30,8 +30,8 @@ resource "azurerm_static_web_app" "portfolio_site" {
 
 resource "azurerm_app_service_plan" "function_plan" {
   name                = "visitorcounter-plan"
-  location            = "West Europe"
-  resource_group_name = "abdirahman.ibrahim_capgemini.com"
+  location            = var.location
+  resource_group_name = var.resource_group_name
   kind                = "FunctionApp"
   reserved            = true
 
@@ -43,20 +43,17 @@ resource "azurerm_app_service_plan" "function_plan" {
 
 resource "azurerm_function_app" "visitorcounter_func" {
   name                       = "visitorcounter-func"
-  location                   = "West Europe"
-  resource_group_name        = "abdirahman.ibrahim_capgemini.com"
+  location                   = var.location
+  resource_group_name        = var.resource_group_name
   app_service_plan_id        = azurerm_app_service_plan.function_plan.id
-  storage_account_name       = "visitorstorageacct"
-  storage_account_access_key = azurerm_storage_account.visitorstorageacct.primary_access_key
-  version                    = "~4"
-  os_type                    = "linux"
-  runtime_stack              = "node"
+  storage_account_name       = azurerm_storage_account.storage.name
+  storage_account_access_key = azurerm_storage_account.storage.primary_access_key
 
-  site_config {
-    application_stack {
-      node_version = "18"
-    }
-  }
+  version = "~4"
+  os_type = "linux"
+
+
+
 
 
   tags = {
@@ -73,9 +70,9 @@ resource "azurerm_storage_account" "storage" {
 }
 
 resource "azurerm_storage_table" "visitor_stats" {
-  name                 = "VisitorStats"
+  name = "VisitorStats"
 
-storage_account_name = azurerm_storage_account.storage.name
+  storage_account_name = azurerm_storage_account.storage.name
 
 }
 

@@ -47,3 +47,11 @@ module.exports = async function (context, req) {
     body: { count: visitorCount }
   };
 };
+
+module.exports = async function (context, req) {
+  context.log("Visitor counted");
+  context.res = {
+    status: 200,
+    body: "Visitor recorded!"
+  };
+};
