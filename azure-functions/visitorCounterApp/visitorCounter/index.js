@@ -51,8 +51,10 @@ module.exports = async function (context, req) {
 module.exports = async function (context, req) {
   context.log("Visitor counted");
   context.res = {
+    headers: { "Content-Type": "application/json" },
     status: 200,
-    body: "Visitor recorded!"
+    body: { count: visitorCount }
+    
   };
 };
 
