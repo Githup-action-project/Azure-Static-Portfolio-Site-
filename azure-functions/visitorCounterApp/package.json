@@ -1,0 +1,10 @@
+{
+  "name": "visitorCounterApp",
+  "version": "1.0.0",
+  "description": "Azure Function App for visitor counter",
+  "main": "index.js",
+  "scripts": {
+    "start": "func start"
+  },
+  "dependencies": {}
+}
