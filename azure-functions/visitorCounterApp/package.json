@@ -1,0 +1,16 @@
+
+{
+  "name": "visitorCounterApp",
+  "version": "1.0.0",
+  "description": "Azure Function App for visitor counter",
+  "main": "index.js",
+  "scripts": {
+    "start": "func start"
+  },
+  "dependencies": {
+    "@azure/data-tables": "^13.2.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
