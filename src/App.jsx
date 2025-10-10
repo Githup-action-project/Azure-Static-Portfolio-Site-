@@ -10,7 +10,6 @@ function App() {
       <Home />
       <About />
       <Projects />
-      <VisitorCounter />
     </div>
   );
 }
