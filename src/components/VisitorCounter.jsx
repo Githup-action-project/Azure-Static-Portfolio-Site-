@@ -1,18 +1,31 @@
 import { useEffect, useState } from "react";
 
 function VisitorCounter() {
-  const [count, setCount] = useState(null);
+  const [analytics, setAnalytics] = useState(null);
 
   useEffect(() => {
     fetch("https://visitorcounter-func.azurewebsites.net/api/visitorcounter")
       .then((res) => res.json())
-      .then((data) => setCount(data.count))
-      .catch((err) => console.error("Error fetching visitor count:", err));
+      .then((data) => setAnalytics(data))
+      .catch((err) => console.error("Error fetching analytics:", err));
   }, []);
 
+  if (!analytics) {
+    return (
+      <div className="text-center mt-4">
+        <h3 className="text-lg font-semibold">Loading visitor analytics...</h3>
+      </div>
+    );
+  }
+
   return (
-    <div className="text-center mt-4">
-      <h3 className="text-lg font-semibold">Visitor Count: {count ?? "Loading..."}</h3>
+    <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center py-6 rounded-lg shadow-lg mt-6">
+      <h2 className="text-2xl font-bold mb-2">Visitor Analytics</h2>
+      <p className="text-lg">Total Visitors: {analytics.totalVisitors}</p>
+      <p className="text-lg">Unique Visitors: {analytics.uniqueVisitors}</p>
+      <p className="text-sm mt-2">
+        Last Visit: {analytics.lastVisit ? new Date(analytics.lastVisit).toLocaleString() : "N/A"}
+      </p>
     </div>
   );
 }
