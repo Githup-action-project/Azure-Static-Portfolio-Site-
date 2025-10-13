@@ -2,8 +2,8 @@ import React from 'react';
 import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
-import VisitorCounter from './components/VisitorCounter';
 import VisitorAnalytics from './components/VisitorAnalytics';
+// import VisitorAnalytics from './components/VisitorAnalytics';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Home />
       <About />
       <Projects />
-      <VisitorCounter />
+      <VisitorAnalytics />
     </div>
   );
 }
