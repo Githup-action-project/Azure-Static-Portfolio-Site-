@@ -11,7 +11,7 @@ function App() {
       <Home />
       <About />
       <Projects />
-      <VisitorAnalytics />
+      <VisitorCounter />
     </div>
   );
 }
