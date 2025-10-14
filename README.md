@@ -75,7 +75,7 @@ npm run dev
 - Add blog section for DevOps insights
 - Improve SEO with meta tags and Open Graph
 
-## Slide 7: Live Demo
+## Live Demo
 - Visit: [https://brave-coast-04f21c003.1.azurestaticapps.net](https://brave-coast-04f21c003.1.azurestaticapps.net)
 - View visitor analytics in real-time
 
