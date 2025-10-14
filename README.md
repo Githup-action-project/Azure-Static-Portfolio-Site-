@@ -75,10 +75,9 @@ npm run dev
 - Add blog section for DevOps insights
 - Improve SEO with meta tags and Open Graph
 
-## 🗣 Presentation Outline
-1. Project Overview and Goals
-2. Tech Stack and Architecture
-3. Live Demo of Portfolio and Analytics
-4. Deployment Workflow
-5. Future Roadmap
+## Slide 7: Live Demo
+- Visit: [https://brave-coast-04f21c003.1.azurestaticapps.net](https://brave-coast-04f21c003.1.azurestaticapps.net)
+- View visitor analytics in real-time
+
+---
 
