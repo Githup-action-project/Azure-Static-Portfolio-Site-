@@ -9,6 +9,7 @@ import Projects from "./pages/Projects";
 import VisitorAnalytics from "./components/VisitorAnalytics";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
+import AnalyticsPage from "./components/AnalyticsDashboard";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/analytics" element={<VisitorAnalytics />} />
+        <Route path="/analytics" element={<AnalyticsPage />} />
       </Routes>
       <Footer />
       <BackToTop /> {/* Add here */}
