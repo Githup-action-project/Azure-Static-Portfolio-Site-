@@ -20,8 +20,8 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
-        {/* <Route path="/analytics" element={<VisitorAnalytics />} /> */}
-        <Route path="/analytics" element={<AnalyticsPage />} />
+        <Route path="/analytics-summary" element={<VisitorAnalytics />} />
+        <Route path="/analytics-dashboard" element={<AnalyticsPage />} />
       </Routes>
       <Footer />
       <BackToTop /> {/* Add here */}
