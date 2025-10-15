@@ -9,7 +9,7 @@ import Projects from "./pages/Projects";
 import VisitorAnalytics from "./components/VisitorAnalytics";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
-import AnalyticsPage from "./components/AnalyticsDashboard";
+import AnalyticsPage from "./components/AnalyticsPage";
 
 function App() {
   return (
