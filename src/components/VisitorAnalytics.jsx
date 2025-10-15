@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CountUp from "react-countup";
 
-
 function VisitorAnalytics() {
   const [analytics, setAnalytics] = useState(null);
 
@@ -15,11 +14,28 @@ function VisitorAnalytics() {
   if (!analytics) return <p className="text-center mt-4">Loading analytics...</p>;
 
   return (
-    <section id="analytics" className="bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center py-6 rounded-lg shadow-lg mt-6 max-w-md mx-auto transition transform hover:scale-105 duration-300">
-      <h2 className="text-2xl font-bold mb-4">Visitor Analytics</h2>
-      <p className="text-lg">Total Visitors: <CountUp end={analytics.totalVisitors} duration={2} /></p>
-      <p className="text-lg">Unique Visitors: <CountUp end={analytics.uniqueVisitors} duration={2} /></p>
-      <p className="text-sm mt-2">Last Visit: {new Date(analytics.lastVisit).toLocaleString()}</p>
+    <section className="flex justify-center mt-8">
+      <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full hover:shadow-2xl transition transform hover:scale-105 duration-300">
+        <h2 className="text-2xl font-bold text-blue-600 mb-4 text-center">
+          Visitor Analytics
+        </h2>
+        <div className="space-y-3 text-center">
+          <p className="text-lg font-semibold text-gray-700">
+            Total Visitors:{" "}
+            <span className="text-purple-600">{analytics.totalVisitors}</span>
+          </p>
+          <p className="text-lg font-semibold text-gray-700">
+            Unique Visitors:{" "}
+            <span className="text-purple-600">{analytics.uniqueVisitors}</span>
+          </p>
+          <p className="text-sm text-gray-500">
+            Last Visit:{" "}
+            <span className="text-gray-800">
+              {new Date(analytics.lastVisit).toLocaleString()}
+            </span>
+          </p>
+        </div>
+      </div>
     </section>
   );
 }
