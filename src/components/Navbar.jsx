@@ -31,7 +31,7 @@ function Navbar() {
         </ul>
 
         {/* Mobile Menu Button */}
-        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-blue-600">
+        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-blue-600" aria-label={isOpen ? "Close menu" : "Open menu"}>
           {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
         </button>
       </div>

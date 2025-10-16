@@ -7,6 +7,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@axe-core/react": "^4.10.2",
     "chart.js": "^4.5.1",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.3.0",

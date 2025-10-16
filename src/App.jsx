@@ -10,6 +10,9 @@ import VisitorAnalytics from "./components/VisitorAnalytics";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
 
+
+
+
 function App() {
   return (
     <div className="pt-20 px-4">

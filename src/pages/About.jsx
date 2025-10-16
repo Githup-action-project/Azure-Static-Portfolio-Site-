@@ -4,7 +4,7 @@ function About() {
   return (
     <section id="about" className="my-12 animate-fadeIn">
       <h2 className="text-3xl font-semibold text-blue-700 mb-4">About Me</h2>
-      <p className="text-gray-700 mb-6">
+      <p className="text-gray-800 mb-6">
         I'm a Software Engineer Lead with a passion for building scalable cloud infrastructure and automating workflows using DevOps practices.
       </p>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
