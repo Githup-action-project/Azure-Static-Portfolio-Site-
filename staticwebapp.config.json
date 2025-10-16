@@ -1,8 +1,18 @@
+// {
+//   "routes": [
+//     {
+//       "route": "/api/*",
+//       "rewrite": "https://visitorcounter-func.azurewebsites.net/api/{*}"
+//     }
+//   ]
+// }
+
 {
   "routes": [
     {
-      "route": "/api/*",
-      "rewrite": "https://visitorcounter-func.azurewebsites.net/api/{*}"
+      "route": "/*",
+      "serve": "/index.html",
+      "statusCode": 200
     }
   ]
 }
