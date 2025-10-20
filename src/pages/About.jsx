@@ -249,4 +249,23 @@ const barData = {
 }
 
 
+seEffect(() => {
+  fetch("/skills.json")
+    .then(res => {
+      if (!res.ok) throw new Error("File not found");
+      return res.json();
+    })
+    .then(data => {
+      setSkills(data.skills);
+      setProficiency(data.proficiency);
+    })
+    .catch(() => {
+      // ✅ Fallback data if skills.json is missing
+      setSkills(["Azure", "DevOps", "Terraform", "React", "CI/CD", "Infrastructure as Code"]);
+      setProficiency([9, 9, 8, 7, 8, 9]);
+    });
+}, []);
+
+
+
 export default About;
