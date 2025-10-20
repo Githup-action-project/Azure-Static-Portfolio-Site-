@@ -18,15 +18,42 @@ import { Helmet } from "react-helmet-async";
 function App() {
   return (
     <>
-      <Helmet>
-        <title>Mohammed Ibrahim | Portfolio</title>
-        <meta name="description" content="Portfolio showcasing Azure, DevOps, Terraform projects and skills." />
-        <meta property="og:title" content="Mohammed Ibrahim Portfolio" />
-        <meta property="og:description" content="Explore projects, skills, and experience in cloud and DevOps." />
-        <meta property="og:image" content="/preview.png" />
-        <meta property="og:url" content="https://brave-coast-04f21c003.1.azurestaticapps.net/" />
-        <meta name="twitter:image" content="/preview.png" />
-      </Helmet>
+      
+<Helmet>
+  {/* Basic SEO */}
+  <title>Mohammed Ibrahim | Portfolio</title>
+  <meta name="description" content="Portfolio showcasing Azure, DevOps, Terraform projects and skills." />
+  https://brave-coast-04f21c003.1.azurestaticapps.net
+
+  {/* Open Graph */}
+  <meta property="og:title" content="Mohammed Ibrahim Portfolio" />
+  <meta property="og:description" content="Explore projects, skills, and experience in cloud and DevOps." />
+  <meta property="og:image" content="https://brave-coast-04f21c003.1.azurestaticapps.net/preview.png" />
+  <meta property="og:url" content="https://brave-coast-04f21c003.1.azurestaticapps.net" />
+  <meta property="og:type" content="website" />
+
+  {/* Twitter Card */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mohammed Ibrahim Portfolio" />
+  <meta name="twitter:description" content="Explore projects, skills, and experience in cloud and DevOps." />
+  <meta name="twitter:image" content="https://brave-coast-04f21c003.1.azurestaticapps.net/preview.png" />
+
+  {/* JSON-LD Structured Data */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Mohammed Ibrahim",
+      jobTitle: "Software Engineer Lead",
+      url: "https://brave-coast-04f21c003.1.azurestaticapps.net",
+      sameAs: [
+        "https://linkedin.com/in/yourusername",
+        "https://github.com/yourusername"
+      ]
+    })}
+  </script>
+</Helmet>
+
 
       <div className="pt-20 px-4">
         <Navbar />
