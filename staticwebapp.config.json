@@ -16,3 +16,8 @@
     }
   ]
 }
+{
+  "routes": [
+    { "route": "/skills.json", "allowedRoles": ["anonymous"] }
+  ]
+}
