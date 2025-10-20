@@ -24,7 +24,7 @@ function App() {
         <meta property="og:title" content="Mohammed Ibrahim Portfolio" />
         <meta property="og:description" content="Explore projects, skills, and experience in cloud and DevOps." />
         <meta property="og:image" content="/preview.png" />
-        <meta property="og:url" content="https://brave-coast-04f21c003.1.azurestaticapps.net/" />
+        <meta property="og:url" content="https://brave-coast-04f21c003.1.azurestaticapps.net" />
         <meta name="twitter:image" content="/preview.png" />
       </Helmet>
 
