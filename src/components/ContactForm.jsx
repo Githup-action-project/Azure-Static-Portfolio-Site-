@@ -7,6 +7,7 @@ function ContactForm() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +28,7 @@ function ContactForm() {
       setStatus("Error sending message.");
     }
   };
+  
 
   return (
     <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-6 bg-white dark:bg-gray-800 rounded shadow">
@@ -64,5 +66,10 @@ function ContactForm() {
     </form>
   );
 }
+const response = await fetch("https://visitorcounter-func.azurewebsites.net/api/contactForm", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(formData)
+});
 
 export default ContactForm;
