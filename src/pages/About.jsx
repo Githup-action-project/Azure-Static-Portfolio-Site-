@@ -7,6 +7,8 @@ import { Helmet } from "react-helmet-async";
 
 
 
+
+
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -64,8 +66,12 @@ const [skills, setSkills] = useState([]);
         setSkills(data.skills);
         setProficiency(data.proficiency);
       })
-      .catch(err => console.error("Error loading skills:", err));
+      .catch(() => {
+        setSkills(["Azure", "DevOps", "Terraform", "React", "CI/CD", "Infrastructure as Code"]);
+        setProficiency([9, 9, 8, 7, 8, 9]);
+      });
   }, []);
+
 
   const radarData = {
     labels: skills,
@@ -249,22 +255,7 @@ const barData = {
 }
 
 
-seEffect(() => {
-  fetch("/skills.json")
-    .then(res => {
-      if (!res.ok) throw new Error("File not found");
-      return res.json();
-    })
-    .then(data => {
-      setSkills(data.skills);
-      setProficiency(data.proficiency);
-    })
-    .catch(() => {
-      // ✅ Fallback data if skills.json is missing
-      setSkills(["Azure", "DevOps", "Terraform", "React", "CI/CD", "Infrastructure as Code"]);
-      setProficiency([9, 9, 8, 7, 8, 9]);
-    });
-}, []);
+
 
 
 
