@@ -18,6 +18,7 @@ import { Helmet } from "react-helmet-async";
 function App() {
   return (
     <>
+
       
 <Helmet>
   {/* Basic SEO */}
@@ -53,6 +54,7 @@ function App() {
     })}
   </script>
 </Helmet>
+
 
 
       <div className="pt-20 px-4">
