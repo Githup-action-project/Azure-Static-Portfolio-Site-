@@ -10,6 +10,7 @@ import VisitorAnalytics from "./components/VisitorAnalytics";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
 import { Helmet } from "react-helmet-async";
+import ContactForm from "./components/ContactForm";
 
 
 
@@ -65,6 +66,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/analytics" element={<VisitorAnalytics />} />
+          <Route path="/contact" element={<ContactForm />} />
         </Routes>
         <Footer />
         <BackToTop />
