@@ -65,7 +65,6 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/analytics" element={<VisitorAnalytics />} />
-          <Route path="/contact" element={<ContactForm />} />
         </Routes>
         <Footer />
         <BackToTop />
