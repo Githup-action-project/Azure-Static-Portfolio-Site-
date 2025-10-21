@@ -54,11 +54,14 @@ module.exports = async function (context, req) {
         lastVisit
       }
     };
-  } catch (error) {
-    context.res = {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-      body: { error: error.message }
-    };
-  }
+ 
+} catch (error) {
+  context.log("Error in visitorCounter:", error);
+  context.res = {
+    status: 500,
+    headers: { "Content-Type": "application/json" },
+    body: { error: error.message, stack: error.stack }
+  };
+}
+
 };
