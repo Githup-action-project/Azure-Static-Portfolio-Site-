@@ -63,10 +63,12 @@ module.exports = async function (context, req) {
     };
   } catch (error) {
     context.log.error("Function error:", error);
-    context.res = {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-      body: { error: error.message }
-    };
+    
+context.res = {
+  status: 500,
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ error: error.message || "Unknown error occurred" })
+};
+
   }
 };
