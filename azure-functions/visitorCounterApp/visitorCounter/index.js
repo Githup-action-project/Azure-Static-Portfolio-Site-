@@ -22,8 +22,12 @@ module.exports = async function (context, req) {
     for await (const entity of entities) {
       totalVisitors += parseInt(entity.count || 1);
       uniqueVisitors += 1;
-      if (!lastVisit || new Date(entity.timestamp) > new Date(lastVisit)) {
-        lastVisit = entity.timestamp;
+
+      if (entity.timestamp) {
+        const visitDate = new Date(entity.timestamp);
+        if (!lastVisit || visitDate > new Date(lastVisit)) {
+          lastVisit = entity.timestamp;
+        }
       }
     }
 
@@ -42,6 +46,9 @@ module.exports = async function (context, req) {
           timestamp: new Date().toISOString()
         };
         await client.createEntity(newEntity);
+      } else {
+        context.log.error("Error updating entity:", error);
+        throw error;
       }
     }
 
@@ -55,6 +62,7 @@ module.exports = async function (context, req) {
       }
     };
   } catch (error) {
+    context.log.error("Function error:", error);
     context.res = {
       status: 500,
       headers: { "Content-Type": "application/json" },
