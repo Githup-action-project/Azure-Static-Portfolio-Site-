@@ -5,7 +5,7 @@ function VisitorAnalytics() {
   const [analytics, setAnalytics] = useState(null);
 
   useEffect(() => {
-    fetch("https://visitorcounter-func.azurewebsites.net/api/visitorcounter")
+    fetch("my-function-f8eddzf5huh4f5dy.westeurope-01.azurewebsites.net/api/TrackVisitor")
       .then((res) => res.json())
       .then((data) => setAnalytics(data))
       .catch((err) => console.error("Error fetching analytics:", err));
