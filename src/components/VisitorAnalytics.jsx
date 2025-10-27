@@ -5,7 +5,7 @@ function VisitorAnalytics() {
   const [analytics, setAnalytics] = useState(null);
 
   useEffect(() => {
-    fetch("my-function-f8eddzf5huh4f5dy.westeurope-01.azurewebsites.net/api/TrackVisitor")
+    fetch("https://my-function-f8eddzf5huh4f5dy.westeurope-01.azurewebsites.net/api/visitorcounter")
       .then((res) => res.json())
       .then((data) => setAnalytics(data))
       .catch((err) => console.error("Error fetching analytics:", err));
@@ -22,16 +22,20 @@ function VisitorAnalytics() {
         <div className="space-y-3 text-center">
           <p className="text-lg font-semibold text-gray-700">
             Total Visitors:{" "}
-            <span className="text-purple-600">{analytics.totalVisitors}</span>
+            <span className="text-purple-600">
+              <CountUp end={analytics.totalVisits} duration={1.5} />
+            </span>
           </p>
           <p className="text-lg font-semibold text-gray-700">
             Unique Visitors:{" "}
-            <span className="text-purple-600">{analytics.uniqueVisitors}</span>
+            <span className="text-purple-600">
+              <CountUp end={analytics.uniqueIPs} duration={1.5} />
+            </span>
           </p>
           <p className="text-sm text-gray-500">
             Last Visit:{" "}
             <span className="text-gray-800">
-              {new Date(analytics.lastVisit).toLocaleString()}
+              {new Date(analytics.date).toLocaleString()}
             </span>
           </p>
         </div>

@@ -1,57 +1,84 @@
-
 const { TableClient, AzureNamedKeyCredential } = require("@azure/data-tables");
 
-module.exports = async function (context, req) {
-  try {
-    const accountName = process.env.STORAGE_ACCOUNT_NAME;
-    const accountKey = process.env.STORAGE_ACCOUNT_KEY;
-    const tableName = "VisitorStats";
+const account = process.env.STORAGE_ACCOUNT_NAME;
+const accountKey = process.env.STORAGE_ACCOUNT_KEY;
+const tableName = "VistorStats";
+const partitionKey = "counter";
+const today = new Date().toISOString().split("T")[0]; // e.g. "2025-10-26"
 
-    if (!accountName || !accountKey) {
-      context.res = {
-        status: 500,
-        headers: { "Content-Type": "application/json" },
-        body: {
-          error: "Missing STORAGE_ACCOUNT_NAME or STORAGE_ACCOUNT_KEY",
-          accountName,
-          accountKeyExists: !!accountKey
-        }
-      };
-      return;
+const credential = new AzureNamedKeyCredential(account, accountKey);
+const client = new TableClient(
+  `https://${account}.table.core.windows.net`,
+  tableName,
+  credential
+);
+
+module.exports = async function (context, req) {
+  context.log("VisitorCounter function triggered");
+
+ 
+  // Extract IP address
+ let ip = req.headers["x-forwarded-for"];
+if (ip) {
+  ip = ip.split(",")[0].trim();
+} else if (req.headers["x-client-ip"]) {
+  ip = req.headers["x-client-ip"];
+} else {
+  ip = "unknown";
+}
+context.log("Visitor IP:", ip);
+
+  const rowKey = `${today}|${ip}`;
+
+  try {
+    await client.createTable(); // Ensure table exists
+
+    let entity;
+    try {
+      entity = await client.getEntity(partitionKey, rowKey);
+    } catch (err) {
+      if (err.statusCode === 404) {
+        entity = { partitionKey, rowKey, count: 0 };
+        await client.createEntity(entity);
+      } else {
+        throw err;
+      }
     }
 
-    const credential = new AzureNamedKeyCredential(accountName, accountKey);
-    const client = new TableClient(`https://${accountName}.table.core.windows.net`, tableName, credential);
+    entity.count += 1;
+    await client.updateEntity(entity, "Replace");
 
-    let entityCount = 0;
-    try {
-      const entities = client.listEntities();
-      for await (const entity of entities) {
-        entityCount++;
+    // Count total visits and unique IPs for today
+    const entities = client.listEntities({
+      queryOptions: {
+        filter: `PartitionKey eq '${partitionKey}' and RowKey ge '${today}' and RowKey lt '${today}z'`
       }
-    } catch (err) {
-      context.res = {
-        status: 500,
-        headers: { "Content-Type": "application/json" },
-        body: { error: "Failed to list entities", details: err.message }
-      };
-      return;
+    });
+
+    let totalVisits = 0;
+    let uniqueIPs = 0;
+
+    for await (const item of entities) {
+      totalVisits += item.count;
+      uniqueIPs += 1;
     }
 
     context.res = {
       status: 200,
       headers: { "Content-Type": "application/json" },
       body: {
-        message: "Function is working",
-        STORAGE_ACCOUNT_NAME: accountName,
-        entityCount
+        date: today,
+        ip,
+        visitsFromThisIP: entity.count,
+        totalVisits,
+        uniqueIPs
       }
     };
   } catch (error) {
+    context.log.error("Error updating visitor count:", error);
     context.res = {
       status: 500,
-      headers: { "Content-Type": "application/json" },
-      body: { error: error.message }
+      body: { error: "Failed to update visitor count" }
     };
   }
 };
