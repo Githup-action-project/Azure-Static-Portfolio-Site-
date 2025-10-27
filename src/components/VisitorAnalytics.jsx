@@ -35,7 +35,11 @@ function VisitorAnalytics() {
           <p className="text-sm text-gray-500">
             Last Visit:{" "}
             <span className="text-gray-800">
-               {analytics.lastVisit ? new Date(analytics.lastVisit).toLocaleString() : "N/A"}
+               {analytics.date
+  ? new Date(analytics.date).toLocaleString("fi-FI", {
+      timeZone: "Europe/Helsinki",
+    })
+  : "N/A"}
             </span>
           </p>
         </div>
