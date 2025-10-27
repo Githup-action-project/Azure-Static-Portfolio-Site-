@@ -35,7 +35,9 @@ function VisitorAnalytics() {
           <p className="text-sm text-gray-500">
             Last Visit:{" "}
             <span className="text-gray-800">
-              {new Date(analytics.timestamp.trim()).toLocaleString()}
+              {analytics.timestamp
+  ? new Date(analytics.timestamp).toLocaleString()
+  : "Timestamp unavailable"}
             </span>
           </p>
         </div>
