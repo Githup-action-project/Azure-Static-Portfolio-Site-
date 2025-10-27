@@ -16,8 +16,17 @@ const client = new TableClient(
 module.exports = async function (context, req) {
   context.log("VisitorCounter function triggered");
 
+ 
   // Extract IP address
- const ip = req.headers["x-forwarded-for"]?.split(",")[0] || "unknown";
+ let ip = req.headers["x-forwarded-for"];
+if (ip) {
+  ip = ip.split(",")[0].trim();
+} else if (req.headers["x-client-ip"]) {
+  ip = req.headers["x-client-ip"];
+} else {
+  ip = "unknown";
+}
+context.log("Visitor IP:", ip);
 
   const rowKey = `${today}|${ip}`;
 
