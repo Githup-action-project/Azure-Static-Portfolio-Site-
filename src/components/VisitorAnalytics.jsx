@@ -35,20 +35,10 @@ function VisitorAnalytics() {
           <p className="text-sm text-gray-500">
             Last Visit:{" "}
             <span className="text-gray-800">
-               {(() => {
-      const t = analytics.timestamp;
-      if (!t) return "N/A";
+              {new Date(analytics.timestamp).toLocaleDateString("fi-FI", {
+  timeZone: "Europe/Helsinki"
+})}
 
-      // Convert seconds → ms if needed
-      const date =
-        typeof t === "number" && t < 1e12
-          ? new Date(t * 1000)
-          : new Date(t);
-
-      return isNaN(date)
-        ? "Invalid date"
-        : date.toLocaleString("fi-FI", { timeZone: "Europe/Helsinki" });
-    })()}
             </span>
           </p>
         </div>
