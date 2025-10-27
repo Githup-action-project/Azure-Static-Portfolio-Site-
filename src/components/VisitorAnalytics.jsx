@@ -35,10 +35,7 @@ function VisitorAnalytics() {
           <p className="text-sm text-gray-500">
             Last Visit:{" "}
             <span className="text-gray-800">
-              {new Date(analytics.timestamp).toLocaleDateString("fi-FI", {
-  timeZone: "Europe/Helsinki"
-})}
-
+               {new Date(analytics.date).toLocaleString()}
             </span>
           </p>
         </div>
