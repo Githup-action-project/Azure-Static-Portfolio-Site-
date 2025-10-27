@@ -4,7 +4,7 @@ const account = process.env.STORAGE_ACCOUNT_NAME;
 const accountKey = process.env.STORAGE_ACCOUNT_KEY;
 const tableName = "VistorStats";
 const partitionKey = "counter";
-const today = new Date().toISOString().split("T")[0]; // e.g. "2025-10-26"
+const now = new Date().toISOString(); // e.g. "2025-10-27T19:43:12.123Z"
 
 const credential = new AzureNamedKeyCredential(account, accountKey);
 const client = new TableClient(
@@ -67,12 +67,12 @@ context.log("Visitor IP:", ip);
       status: 200,
       headers: { "Content-Type": "application/json" },
       body: {
-        date: today,
-        ip,
-        visitsFromThisIP: entity.count,
-        totalVisits,
-        uniqueIPs
-      }
+    timestamp: now,
+    ip,
+    visitsFromThisIP: entity.count,
+    totalVisits,
+    uniqueIPs
+  }
     };
   } catch (error) {
     context.log.error("Error updating visitor count:", error);
