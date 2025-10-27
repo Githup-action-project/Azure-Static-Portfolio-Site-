@@ -35,11 +35,11 @@ function VisitorAnalytics() {
           <p className="text-sm text-gray-500">
             Last Visit:{" "}
             <span className="text-gray-800">
-              {analytics.timestamp
-  ? new Date(analytics.timestamp.split(".")[0] + "Z").toLocaleDateString("fi-FI", {
-      timeZone: "Europe/Helsinki"
+               {analytics.date
+  ? new Date(analytics.date).toLocaleString("fi-FI", {
+      timeZone: "Europe/Helsinki",
     })
-  : "Päivämäärä ei saatavilla"}
+  : "N/A"}
             </span>
           </p>
         </div>
