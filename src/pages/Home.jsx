@@ -33,7 +33,7 @@ function Home() {
       {/* ✅ Resume Download Button */}
       <div className="mb-6">
         <a
-          href="/resume.pdf"
+          href="/Mohammed_Ibrahim_ENG_NEW.pdf"
           download
           className="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
         >
