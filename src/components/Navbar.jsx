@@ -28,6 +28,7 @@ function Navbar() {
           <li><Link to="/about" className="hover:text-purple-600 transition">About</Link></li>
           <li><Link to="/projects" className="hover:text-purple-600 transition">Projects</Link></li>
           <li><Link to="/analytics" className="hover:text-purple-600 transition">Analytics</Link></li>
+          <Link to="/about-site"className="block hover:text-purple-600 transition">My Portofolio</Link>
         </ul>
 
         {/* Mobile Menu Button */}
@@ -43,6 +44,8 @@ function Navbar() {
           <li><Link to="/about" className="block hover:text-purple-600 transition">About</Link></li>
           <li><Link to="/projects" className="block hover:text-purple-600 transition">Projects</Link></li>
           <li><Link to="/analytics" className="block hover:text-purple-600 transition">Analytics</Link></li>
+          <Link to="/about-site"className="block hover:text-purple-600 transition">My Portofolio</Link>
+          
         </ul>
       )}
     </nav>

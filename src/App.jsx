@@ -10,6 +10,8 @@ import VisitorAnalytics from "./components/VisitorAnalytics";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
 import { Helmet } from "react-helmet-async";
+import AboutSite from "./pages/AboutSite";
+
 
 function App() {
   const location = useLocation();
@@ -52,6 +54,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/analytics" element={<VisitorAnalytics />} />
+            <Route path="/about-site" element={<AboutSite />} />
           </Routes>
         </AnimatePresence>
         <Footer />
