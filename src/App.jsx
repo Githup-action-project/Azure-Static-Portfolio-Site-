@@ -1,6 +1,6 @@
-
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Home from "./pages/Home";
@@ -11,67 +11,54 @@ import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
 import { Helmet } from "react-helmet-async";
 
-
-
-
-
 function App() {
+  const location = useLocation();
+
   return (
     <>
-
-      
-<Helmet>
-  {/* Basic SEO */}
-  <title>Mohammed Ibrahim | Portfolio</title>
-  <meta name="description" content="Portfolio showcasing Azure, DevOps, Terraform projects and skills." />
-  https://brave-coast-04f21c003.1.azurestaticapps.net
-
-  {/* Open Graph */}
-  <meta property="og:title" content="Mohammed Ibrahim Portfolio" />
-  <meta property="og:description" content="Explore projects, skills, and experience in cloud and DevOps." />
-  <meta property="og:image" content="https://brave-coast-04f21c003.1.azurestaticapps.net/preview.png" />
-  <meta property="og:url" content="https://brave-coast-04f21c003.1.azurestaticapps.net" />
-  <meta property="og:type" content="website" />
-
-  {/* Twitter Card */}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Mohammed Ibrahim Portfolio" />
-  <meta name="twitter:description" content="Explore projects, skills, and experience in cloud and DevOps." />
-  <meta name="twitter:image" content="https://brave-coast-04f21c003.1.azurestaticapps.net/preview.png" />
-
-  {/* JSON-LD Structured Data */}
-  <script type="application/ld+json">
-    {JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Person",
-      name: "Mohammed Ibrahim",
-      jobTitle: "Software Engineer Lead",
-      url: "https://brave-coast-04f21c003.1.azurestaticapps.net",
-      sameAs: [
-        "https://linkedin.com/in/yourusername",
-        "https://github.com/yourusername"
-      ]
-    })}
-  </script>
-</Helmet>
-
-
+      <Helmet>
+        <title>Mohammed Ibrahim | Portfolio</title>
+        <meta name="description" content="Portfolio showcasing Azure, DevOps, Terraform projects and skills." />
+        <meta property="og:title" content="Mohammed Ibrahim Portfolio" />
+        <meta property="og:description" content="Explore projects, skills, and experience in cloud and DevOps." />
+        <meta property="og:image" content="https://brave-coast-04f21c003.1.azurestaticapps.net/preview.png" />
+        <meta property="og:url" content="https://brave-coast-04f21c003.1.azurestaticapps.net" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Mohammed Ibrahim Portfolio" />
+        <meta name="twitter:description" content="Explore projects, skills, and experience in cloud and DevOps." />
+        <meta name="twitter:image" content="https://brave-coast-04f21c003.1.azurestaticapps.net/preview.png" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Mohammed Ibrahim",
+            jobTitle: "Software Engineer Lead",
+            url: "https://brave-coast-04f21c003.1.azurestaticapps.net",
+            sameAs: [
+              "https://linkedin.com/in/yourusername",
+              "https://github.com/yourusername"
+            ]
+          })}
+        </script>
+      </Helmet>
 
       <div className="pt-20 px-4">
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Hero />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/analytics" element={<VisitorAnalytics />} />
-        </Routes>
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Hero />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/analytics" element={<VisitorAnalytics />} />
+          </Routes>
+        </AnimatePresence>
         <Footer />
         <BackToTop />
       </div>
     </>
   );
 }
-
 
 export default App;

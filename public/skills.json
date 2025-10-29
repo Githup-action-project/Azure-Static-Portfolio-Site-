@@ -1,4 +1,7 @@
+
 {
-  "skills": ["Azure", "DevOps", "Terraform", "React", "CI/CD", "Infrastructure as Code"],
-  "proficiency": [9, 9, 8, 7, 8, 9]
+"skills":  [
+  "DevOps","Azure", "Kubernetes", "CI/CD","Docker", "Terraform", "GitHub", "Infrastructure as Code", "Jenkins", "Helm", "Maven", "Ant"
+],
+ "proficiency": [9, 9, 8, 9, 8, 8, 7, 7, 6,7,6,7]
 }

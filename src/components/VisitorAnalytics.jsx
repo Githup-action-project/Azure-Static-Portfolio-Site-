@@ -1,20 +1,48 @@
 import React, { useEffect, useState } from "react";
 import CountUp from "react-countup";
+import { motion } from "framer-motion";
+import LoadingSpinner from "./LoadingSpinner";
+
+
+
+const pageVariants = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -20 },
+};
+
 
 function VisitorAnalytics() {
   const [analytics, setAnalytics] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("https://my-function-f8eddzf5huh4f5dy.westeurope-01.azurewebsites.net/api/visitorcounter")
       .then((res) => res.json())
       .then((data) => setAnalytics(data))
       .catch((err) => console.error("Error fetching analytics:", err));
+       setLoading(false);
   }, []);
 
   if (!analytics) return <p className="text-center mt-4">Loading analytics...</p>;
 
   return (
-    <section className="flex justify-center mt-8">
+    
+<motion.section
+      variants={pageVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={{ duration: 0.5 }}
+      className="flex justify-center mt-8"
+      
+>
+      {loading ? (
+        <LoadingSpinner />
+      ) : (
+
+
+  
       <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full hover:shadow-2xl transition transform hover:scale-105 duration-300">
         <h2 className="text-2xl font-bold text-blue-600 mb-4 text-center">
           Visitor Analytics
@@ -44,7 +72,8 @@ function VisitorAnalytics() {
           </p>
         </div>
       </div>
-    </section>
+      )}
+    </motion.section>
   );
 }
 
